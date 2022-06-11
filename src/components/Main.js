@@ -1,8 +1,13 @@
 import React from 'react'
 
-function Main() {
+function Main({timeZones, handleSelectChange,listOfSelectedTZ, handleAddClock,handleTZRemove}) {
   return (
-    <div>Main</div>
+    <div>
+        <main>
+            <Aside handleAddClock={handleAddClock} timeZones={timeZones} handleSelectChange={handleSelectChange} />
+            <Section handleTZRemove={handleTZRemove} listOfSelectedTZ={listOfSelectedTZ} />
+        </main>
+    </div>
   )
 }
 
