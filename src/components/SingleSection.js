@@ -1,7 +1,7 @@
 import { tz } from 'moment-timezone'
 import React from 'react'
 
-function SingleSection() {
+function SingleSection({tz, handleTZRemove}) {
   return (
     <div className='single-timezone'>
         <span onClick={()=>handleTZRemove(tz.id)}>x</span>
