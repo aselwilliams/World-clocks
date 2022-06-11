@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import {useState} from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
 import moment from 'moment-timezone';
@@ -13,7 +13,8 @@ function App() {
   const [listOfSelectedTZ, setListOfSelectedTZ]= useState([]);
   return (
     <div className="App">
-    
+    <Header />
+    <Main handleTZRemove={handleTZRemove} handleAddClock={handleAddClock} timeZones={timeZones} listOfSelectedTZ={listOfSelectedTZ} handleSelectedChange={handleSelectedChange} />
     </div>
   );
 }
