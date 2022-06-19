@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-function SingleOption({tz}) {
-  return (
-    <option>{tz}</option>
-  )
+function SingleOption({ tz }) {
+  return <option>{tz}</option>;
 }
 
-export default SingleOption
+export default SingleOption;

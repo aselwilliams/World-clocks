@@ -1,16 +1,16 @@
-import React from 'react'
-import SingleOption from './SingleOption'
+import React, { useContext } from "react";
+import SingleSection from "./SingleSection";
+import { TZContext } from "../context-api/TZContext";
 
-function Section({listOfSelectedTZ, handleTZRemove}) {
+function Section() {
+  const { listOfSelectedTZ } = useContext(TZContext);
   return (
-   <section>
-       {listOfSelectedTZ.map((tz)=>{
-           return(
-               <SingleOption handleTZRemove={handleTZRemove} tz={tz} key={tz.id} />
-           )
-       })}
-   </section>
-  )
+    <section>
+      {listOfSelectedTZ.map((tz) => {
+        return <SingleSection tz={tz} key={tz.id} />;
+      })}
+    </section>
+  );
 }
 
-export default Section
+export default Section;

@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
+import Aside from "./Aside";
+import Section from "./Section";
 
-function Main({timeZones, handleSelectChange,listOfSelectedTZ, handleAddClock,handleTZRemove}) {
+function Main() {
   return (
-    <div>
-        <main>
-            <Aside handleAddClock={handleAddClock} timeZones={timeZones} handleSelectChange={handleSelectChange} />
-            <Section handleTZRemove={handleTZRemove} listOfSelectedTZ={listOfSelectedTZ} />
-        </main>
-    </div>
-  )
+    <main>
+      <Aside />
+      <Section />
+    </main>
+  );
 }
 
-export default Main
+export default Main;
