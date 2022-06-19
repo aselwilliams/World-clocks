@@ -12,9 +12,8 @@ const defaultState={
 }
 
 export const TZProvider = ({children})=> {
-    const [timeZones, setTimeZones]= useState(moment.tz.names());
+    const [timeZones]= useState(moment.tz.names());
     const [selectedTZName, setSelectedTZName] =useState('');
-    const [selectedTZTime, setSelectedTZTime] =useState(0);
     const [selectedTZId, setSelectedTZId] =useState('');
     const [state, dispatch] = useReducer(reducer, defaultState);
   
@@ -25,7 +24,6 @@ export const TZProvider = ({children})=> {
     const handleSelectChange=(e)=>{
       if(e.target.value!=='- Select a timezone -') {
         setSelectedTZName(e.target.value);
-        setSelectedTZTime(moment.tz.zone(e.target.value).untils[0]);
         setSelectedTZId(uuidv4())
       }
     }
@@ -37,7 +35,6 @@ export const TZProvider = ({children})=> {
         const newTZ= {
           id: selectedTZId,
           zoneName: selectedTZName,
-          zoneTime: selectedTZTime
         }
         dispatch({ type: 'ADD_ITEM', payload: newTZ})
       }

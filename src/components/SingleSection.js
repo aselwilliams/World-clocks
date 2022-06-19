@@ -3,16 +3,16 @@ import { TZContext } from "../context-api/TZContext";
 import moment from 'moment-timezone';
 
 function SingleSection({ tz }) {
-  const timeZone=(moment.tz.zone(tz.zoneName).format('hh:mm:ss A'))
-  const [time, setTime] = useState(Math.abs(tz.zoneTime));
-  const [clockOn, setClockOn] = useState(true);
+  const timeZone=(moment().tz(tz.zoneName).format('hh:mm:ss A'))
+  const [time, setTime] = useState(timeZone);
+  const [clockOn] = useState(true);
   const { handleTZRemove } = useContext(TZContext);
 
   useEffect(() => {
     let interval = null;
     if (clockOn) {
       interval = setInterval(() => {
-        setTime((prevTime) => prevTime + 1000);
+        setTime(moment().tz(tz.zoneName).format('hh:mm:ss A'));
       }, 1000);
     } else {
       clearInterval(interval);
@@ -27,9 +27,7 @@ function SingleSection({ tz }) {
       </span>
       <h3 className="single-clock">{tz.zoneName}</h3>
       <div>
-        <span>{("0" + Math.floor((time / 3600000) % 24)).slice(-2)} :</span>
-        <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)} : </span>
-        <span>{("0" + ((time / 1000) % 60)).slice(-2)}</span>
+        {time}
       </div>
     </div>
   );
