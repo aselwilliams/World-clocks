@@ -3,8 +3,8 @@ import { TZContext } from "../context-api/TZContext";
 import moment from 'moment-timezone';
 
 function SingleSection({ tz }) {
-  const timeZone=(moment().tz(tz.zoneName).format('hh:mm:ss A'))
-  const [time, setTime] = useState(timeZone);
+  // const timeZone=(moment().tz(tz.zoneName).format('hh:mm:ss A'))
+  const [time, setTime] = useState(moment().tz(tz.zoneName).format('hh:mm:ss A'));
   const [clockOn] = useState(true);
   const { handleTZRemove } = useContext(TZContext);
 
@@ -18,7 +18,7 @@ function SingleSection({ tz }) {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [clockOn]);
+  }, [clockOn, tz.zoneName]);
 
   return (
     <div className="single-timezone">
