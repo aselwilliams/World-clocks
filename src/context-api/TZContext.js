@@ -31,7 +31,7 @@ export const TZProvider = ({children})=> {
       const selectedTZIndex=state.listOfSelectedTZ.findIndex((tz)=>tz.zoneName===selectedTZName);
   
       if (selectedTZIndex < 0 && selectedTZName !=='') {
-        const newList = state.listOfSelectedTZ.map((tz)=>({...tz}));
+         state.listOfSelectedTZ.map((tz)=>({...tz}));
         const newTZ= {
           id: selectedTZId,
           zoneName: selectedTZName,
